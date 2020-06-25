@@ -55,7 +55,7 @@ Mind: In csv file, the first row (colname) has one fewer element than other rows
 
 ```
 module load r/3.4.4
-Rscript ICTD_bigred.r --data_dir data --res_dir res --out out.csv
+Rscript ICTD_bigred.r --data_dir data --test_file test_bulk.csv --res_dir res --out out.csv
 
 ```
 
