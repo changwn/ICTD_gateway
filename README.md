@@ -34,7 +34,7 @@ ICTD: A semi-supervised cell type identification and deconvolution method for mu
 optional arguments:
   -h, --help            show this help message and exit
   -d, --data_dir <data_directory>
-                        The data directory for training and prediction
+                        The directory of for input data
   -t, --test_file TEST_FILE
                         The test RNA file
   -r, --res_dir <res_directory>
