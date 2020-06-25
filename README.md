@@ -14,6 +14,10 @@ ICTD is implemented by R.
 
 The dependency of the ICTD please refer to DESCRIPTION file of the package [here](https://github.com/changwn/ICTD/blob/master/DESCRIPTION).
 
+The additional dependency package for bigred 3.
+- [optparse](https://CRAN.R-project.org/package=optparse )
+
+
 Instruction for installation please refer to package [manual](https://github.com/changwn/ICTD).
 
 
