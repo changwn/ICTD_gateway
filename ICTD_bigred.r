@@ -46,7 +46,7 @@ if (!require('ICTD')) {
   #load ICTD
   library("ICTD")
 }
-#ictd_result <- ICTD(data_bulk)
+ictd_result <- ICTD(data_bulk)
 ictd_proportion <- ictd_result[[1]]
 print("ICTD_done")
 
