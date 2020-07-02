@@ -1,6 +1,14 @@
 
 #!/usr/bin/env Rscript
-library("optparse")
+if (!require('optparse')) {
+  install.packages("optparse")
+  library("optparse")
+}
+if (!require('devtools')) {
+  install.packages("devtools")
+  library("devtools")
+}
+
  
 option_list = list(
 #	make_option(c("-f", "--file"), type="character", default=NULL, 
@@ -31,7 +39,13 @@ inputFile = paste(opt$data_dir, opt$test_file, sep='/')
 data_bulk = read.csv(inputFile) #careful: the first row (colname) has one fewer element than other rows.
 
 #---------run ICTD function----------------------
-library(ICTD)
+if (!require('ICTD')) {
+  #install ICTD
+  devtools::install_github("changwn/ICTD")
+  
+  #load ICTD
+  library("ICTD")
+}
 #ictd_result <- ICTD(data_bulk)
 ictd_proportion <- ictd_result[[1]]
 print("ICTD_done")
