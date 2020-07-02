@@ -21,6 +21,7 @@ The additional dependency package for bigred 3.
 Instruction for installation please refer to package [manual](https://github.com/changwn/ICTD).
 
 
+
 ## Usage
 You can see the input arguments for ICTD by help option:
 
@@ -54,6 +55,9 @@ Mind: In csv file, the first row (colname) has one fewer element than other rows
 ### Run ICTD on bigred3@IU
 
 ```
+git clone https://github.com/changwn/ICTD_gateway
+cd ICTD_gateway
+
 module load r/3.6.0
 Rscript ICTD_bigred.r --data_dir data --test_file test_bulk.csv --res_dir res --out out.csv
 
