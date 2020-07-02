@@ -1,7 +1,7 @@
 
 #!/usr/bin/env Rscript
 if (!require('optparse')) {
-  install.packages("optparse")
+  install.packages("optparse",, repo="http://cran.rstudio.com/")
   library("optparse")
 }
 if (!require('devtools')) {
