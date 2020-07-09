@@ -1,14 +1,15 @@
 
 #!/usr/bin/env Rscript
-if (!require('optparse',lib.loc ="/N/u/wnchang/BigRed3/gateway_ICTD/lib")) {
-  install.packages("optparse", repo="http://cran.rstudio.com/",lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")
-  library("optparse", lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")
+lib_dir = paste(getwd(), "lib", sep="/")
+
+if (!require('optparse',lib.loc =lib_dir)) {
+  install.packages("optparse", repo="http://cran.rstudio.com/",lib=lib_dir)
+  library("optparse", lib=lib_dir)
 }
 if (!require('devtools')) {
-  install.packages("devtools", lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")
-  library("devtools",lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")
+  install.packages("devtools", lib=lib_dir)
+  library("devtools",lib=lib_dir)
 }
-
  
 option_list = list(
 #	make_option(c("-f", "--file"), type="character", default=NULL, 
@@ -39,15 +40,15 @@ inputFile = paste(opt$data_dir, opt$test_file, sep='/')
 data_bulk = read.csv(inputFile) #careful: the first row (colname) has one fewer element than other rows.
 
 
-library("biclust", lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")
-library("bcv",lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")
+library("biclust", lib=lib_dir)
+library("bcv",lib=lib_dir)
 #---------run ICTD function----------------------
-if (!require('ICTD',lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")) {
+if (!require('ICTD',lib=lib_dir)) {
   #install ICTD
   withr::with_libpaths(new="./", install_github('changwn/ICTD'))
 
   #load ICTD
-  library("ICTD",lib="/N/u/wnchang/BigRed3/gateway_ICTD/lib")
+  library("ICTD",lib=lib_dir)
 }
 ictd_result <- ICTD(data_bulk)
 ictd_proportion <- ictd_result[[1]]
@@ -57,10 +58,3 @@ print("ICTD_done")
 outputFile = paste(opt$res_dir, opt$out, sep='/')
 #print(outputFile)
 write.csv(ictd_proportion, row.names = TRUE, file = outputFile)
-
-
-
-
-
-
-
